@@ -34,5 +34,8 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'stan_api' => [
+        'url' => env('STAN_API_URL'),
+    ],
 
 ];

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Upravnik zgrade stanje</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
         @livewireStyles
     </head>
     <body>
@@ -16,7 +17,7 @@
                     <div class="px-4 py-1 flex items-center justify-between">
                         <x-icon-logo-large class="w-30 h-12" />
                         <h1 class="text-xl text-gray-900 dark:text-white">
-                            Upravnik zgrade
+                            Dobrodošli
                         </h1>
                         <button 
                             @click="dark = !dark"
@@ -31,20 +32,10 @@
                         </button>
                     </div>
                 </header>
-                </div>
+                {{ $slot }}
+                <livewire:modal />
+            </div>
         </div>
-
-        <nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 pb-2">
-            <div class="flex items-center justify-around">
-            
-            </div>
-            <div class="flex justify-between m-0 py-0 max-h-[8px]"> 
-                <div>&nbsp;</div>
-                <div class="text-xs leading-none text-gray-700 dark:text-gray-400">{{ config('global.siteFooter') }}</div>
-                <div class="text-right text-xs leading-none text-gray-700 dark:text-gray-400">{{ config('global.version') }}</div>
-            </div>
-        </nav>
         @livewireScripts
     </body>
 </html>
-
