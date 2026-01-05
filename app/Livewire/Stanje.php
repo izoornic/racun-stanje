@@ -79,9 +79,9 @@ class Stanje extends Component
        $this->uplate =[];
        foreach($this->stanData['zaduzenja'] as $uplata){
             $uplata['year'] = Carbon::parse($uplata['datum'])->setTimezone('Europe/Belgrade')->format('Y');
-            $uplata['datum'] = Carbon::parse($uplata['datum'])->setTimezone('Europe/Belgrade')->translatedFormat('d. m. Y.');
+            $uplata['datum'] = Carbon::parse($uplata['datum'])->setTimezone('Europe/Belgrade')->translatedFormat('d.m.y.');
             $uplata['zaduzeno_formated'] = number_format($uplata['zaduzeno'], '2', ',', ' ');
-            $uplata['r_date'] = Carbon::parse($uplata['r_date'])->setTimezone('Europe/Belgrade')->translatedFormat('d. m. Y.');
+            $uplata['r_date'] = Carbon::parse($uplata['r_date'])->setTimezone('Europe/Belgrade')->translatedFormat('d.m.y.');
             $uplata['razduzeno_formated'] = number_format($uplata['razduzeno'], '2', ',', ' ');
             $uplata['mesec'] = $uplata['m_naziv'];
 

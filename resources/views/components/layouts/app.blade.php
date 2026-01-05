@@ -14,7 +14,7 @@
             <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
                 <!-- Header -->
                 <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-10">
-                    <div class="px-4 py-1 flex items-center justify-between">
+                    <div class="px-4 py-1 flex items-center justify-between max-w-md mx-auto">
                         <x-icon-logo-large class="w-30 h-12" />
                         <h1 class="text-xl text-gray-900 dark:text-white">
                             Dobrodošli

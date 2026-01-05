@@ -1,6 +1,6 @@
 <div>
     <!-- Main Content -->
-    <main class="px-4 py-6 pb-20">
+    <main class="px-4 py-6 pb-20 max-w-md mx-auto">
         <!-- Vlasnik -->
         <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm mb-4 flex justify-between">
             <div></div>

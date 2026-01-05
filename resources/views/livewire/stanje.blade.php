@@ -1,6 +1,6 @@
 <div>
     <!-- Main Content -->
-    <main class="px-4 py-6 pb-20">
+    <main class="px-4 py-6 pb-20 max-w-md mx-auto">
         <!-- Welcome Card -->
         <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm mb-4 flex justify-between">
             <div></div>
@@ -99,23 +99,23 @@
         @if($ulpateDisplay)
         <div class="space-y-3" >
             @foreach ($uplate as $uplata)
-                <div class="bg-white dark:bg-gray-800 dark:border dark:border-gray-600 rounded-xl p-4 shadow-sm">
-                        <div class="flex items-center justify-between">
-                            <div class="w-8 h-8 {{ $uplata['saldo_bg'] }} rounded-full flex items-center justify-center text-white font-bold">
-                                @if($uplata['saldo_prefix'] == '-')
-                                    <x-heroicon-o-minus-circle class="w-6 h-6" />
-                                @elseif($uplata['saldo_prefix'] == '+')
-                                    <x-heroicon-o-check-circle class="w-6 h-6" />
-                                @else
-                                    <x-heroicon-o-check-circle class="w-6 h-6" />
-                                @endif
-                            </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white mb-1 text-center">
-                                {{ $uplata['mesec'] }}<br/>
-                                {{ $uplata['year'] }}
-                            </h3>
+                <div class="bg-white dark:bg-gray-800 dark:border dark:border-gray-600 rounded-xl p-2 shadow-sm">
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-white">
+                            {{ $uplata['mesec'] }} {{ $uplata['year'] }}
+                        </h3>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="w-8 h-8 {{ $uplata['saldo_bg'] }} rounded-full flex items-center justify-center text-white">
+                            @if($uplata['saldo_prefix'] == '-')
+                                <x-heroicon-o-minus-circle class="w-6 h-6" />
+                            @elseif($uplata['saldo_prefix'] == '+')
+                                <x-heroicon-o-check-circle class="w-6 h-6" />
+                            @else
+                                <x-heroicon-o-check-circle class="w-6 h-6" />
+                            @endif
                         </div>
+                    
                         <div>
                             <p class="text-sm text-gray-600 dark:text-gray-300">
                                 Zaduženo:
@@ -159,7 +159,6 @@
                                 <x-heroicon-o-check-circle class="w-6 h-6 dark:text-white" />
                             @endif
                         </div>
-                        
                     </div>
                 </div>
             @endforeach

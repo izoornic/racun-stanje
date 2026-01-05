@@ -1,6 +1,6 @@
 <div>
    <nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 pb-2">
-        <div class="flex items-center justify-around">
+        <div class="flex items-center justify-around max-w-md mx-auto">
             @if($page == 'stanje')
                 <div class="flex flex-col items-center py-2 text-blue-500">
                     <x-heroicon-o-home class="w-6 h-6 mb-1"/>
