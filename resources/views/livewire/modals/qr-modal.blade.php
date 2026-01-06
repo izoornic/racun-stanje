@@ -1,5 +1,4 @@
 <div class="bg-gray-50 dark:bg-gray-900">
-
     <div class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white dark:bg-gray-800 bg-clip-padding dark:text-white text-current shadow-4 outline-none">
       <div class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 p-4">
         <h5 class="text-xl font-medium leading-normal text-surface">

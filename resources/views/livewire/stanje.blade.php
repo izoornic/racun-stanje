@@ -1,8 +1,8 @@
 <div>
     <!-- Main Content -->
     <main class="px-4 py-6 pb-20 max-w-md mx-auto">
-        <!-- Welcome Card -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm mb-4 flex justify-between">
+        <!-- Vlasnik Card -->
+        <div class="bg-white bg-sky-100 dark:bg-gray-800 rounded-2xl p-6 shadow-sm mb-4 flex justify-between">
             <div></div>
             <div>
                 <div class="flex">
@@ -49,6 +49,22 @@
             </div>
             <div></div>
         </div>
+        @if($aktivna_opomena)
+            <!-- Opomena Card -->
+           <button wire:click="showOpomena" class="bg-orange-400 dark:bg-orange-800 rounded-2xl mb-4 p-4 text-white flex justify-between w-full">
+                <div class="my-auto"><x-heroicon-o-exclamation-triangle class="w-6 h-6 mt-1 mr-4" /></div>
+                <div>
+                    <div class="text-sm opacity-90">Aktivna opomena:</div>
+                    <div class="flex">
+                        <div class="text-xl font-bold mb-1">
+                            {{ $aktivna_opomena['naslov'] }}
+                        </div>
+                    </div>
+                </div>
+                <div class="my-auto"><x-heroicon-o-arrows-pointing-out class="w-6 h-6 dark:text-white" /></div>
+            </button>
+        @endif
+
         @if($zgrada_visible) 
             <!-- Zgrada Card -->
             <div class="bg-blue-500 dark:bg-blue-900 rounded-2xl mb-4 p-4 text-white flex justify-between">
@@ -95,7 +111,6 @@
             <div></div>    
         </button>
         <!-- List Items -->
-            <!-- display: {{ $ulpateDisplay ? 'block' : 'none' }} -->
         @if($ulpateDisplay)
         <div class="space-y-3" >
             @foreach ($uplate as $uplata)
@@ -106,10 +121,10 @@
                         </h3>
                     </div>
                     <div class="flex items-center justify-between">
-                        <div class="w-8 h-8 {{ $uplata['saldo_bg'] }} rounded-full flex items-center justify-center text-white">
-                            @if($uplata['saldo_prefix'] == '-')
+                        <div class="w-8 h-8 {{ $uplata['bg'] }} rounded-full flex items-center justify-center text-white">
+                            @if($uplata['prefix'] == '-')
                                 <x-heroicon-o-minus-circle class="w-6 h-6" />
-                            @elseif($uplata['saldo_prefix'] == '+')
+                            @elseif($uplata['prefix'] == '+')
                                 <x-heroicon-o-check-circle class="w-6 h-6" />
                             @else
                                 <x-heroicon-o-check-circle class="w-6 h-6" />
@@ -155,6 +170,8 @@
                                 <button wire:click="showQr({{ $uplata['mid'] }})" style="cursor: pointer;" class="bg-gray-200 dark:bg-gray-600 rounded-sm p-1">
                                     <x-heroicon-o-qr-code class="w-6 h-6 dark:text-white" />
                                 </button>
+                            @elseif($uplata['prefix'] == '+')
+                                <x-heroicon-o-plus-circle class="w-6 h-6 dark:text-white" />
                             @else
                                 <x-heroicon-o-check-circle class="w-6 h-6 dark:text-white" />
                             @endif
@@ -166,10 +183,10 @@
             @if($stari_dug['zaduzeno'] > 0)
                 <div class="bg-white dark:bg-gray-800 dark:border dark:border-gray-600 rounded-xl p-4 shadow-sm">
                     <div class="flex items-center justify-between">
-                            <div class="w-8 h-8 {{ $stari_dug['saldo_bg'] }} rounded-full flex items-center justify-center text-white font-bold">
-                            @if($stari_dug['saldo_prefix'] == '-')
+                            <div class="w-8 h-8 {{ $stari_dug['bg'] }} rounded-full flex items-center justify-center text-white font-bold">
+                            @if($stari_dug['prefix'] == '-')
                                 <x-heroicon-o-minus-circle class="w-6 h-6" />
-                            @elseif($stari_dug['saldo_prefix'] == '+')
+                            @elseif($stari_dug['prefix'] == '+')
                                 <x-heroicon-o-check-circle class="w-6 h-6" />
                             @else
                                 <x-heroicon-o-check-circle class="w-6 h-6" />
@@ -219,10 +236,10 @@
 
         <div class="bg-white dark:bg-gray-800 dark:border dark:border-gray-600 rounded-xl p-4 shadow-sm">
                 <div class="flex items-center justify-between">
-                    <div class="w-10 h-10 {{ $ukupno_dug['saldo_bg'] }} rounded-full flex items-center justify-center text-white font-bold">
-                        @if($ukupno_dug['saldo_prefix'] == '-')
+                    <div class="w-10 h-10 {{ $ukupno_dug['bg'] }} rounded-full flex items-center justify-center text-white font-bold">
+                        @if($ukupno_dug['prefix'] == '-')
                             <x-heroicon-o-minus-circle class="w-6 h-6" />
-                        @elseif($ukupno_dug['saldo_prefix'] == '+')
+                        @elseif($ukupno_dug['prefix'] == '+')
                             <x-heroicon-o-check-circle class="w-6 h-6" />
                         @else
                             <x-heroicon-o-check-circle class="w-6 h-6" />
