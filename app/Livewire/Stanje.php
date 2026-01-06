@@ -7,6 +7,7 @@ use App\Services\StanDataService;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Arr;
 
+use Ramsey\Uuid\Type\Integer;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Stanje extends Component
@@ -137,10 +138,10 @@ class Stanje extends Component
             }
             if(isset($this->aktivna_opomena)){
                 $this->aktivna_opomena['saldo'] = number_format($saldo_za_opomenu, '2', ',', ' ');
-                $this->aktivna_opomena['naslov'] = ($opomena['rbr'] == '1')? 'Opomena za dugovanje': 'Opomena pred utuženje';
+                $this->aktivna_opomena['naslov'] = ($this->aktivna_opomena['rbr'] == 1)? 'Opomena za dugovanje': 'Opomena pred utuženje';
                 $this->aktivna_opomena['text'] = $this->opomena_txt; 
             }
-            //dd($this->aktivna_opomena);
+            //dd($this->aktivna_opomena, ($opomena['rbr'] == 1));
        }
     }
 

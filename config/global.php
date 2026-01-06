@@ -4,7 +4,7 @@ return [
 
 	'siteFooter' => '© '.date("Y").' Digital Skyvortex',
 
-	'version' => 'v 1.1.5',
+	'version' => 'v 1.1.6',
 
 	'paginate' => 10,
 
