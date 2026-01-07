@@ -28,7 +28,7 @@ class Stanje extends Component
     public $stari_dug;
     public $ukupno_dug;
 
-    public $ulpateDisplay = true;
+    public $ulpateDisplay = false;
 
     public $qr_data;
 
