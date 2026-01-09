@@ -19,4 +19,9 @@ class StanDataService
     {
         return $this->provider->getProfileData($rkv);
     }
+
+    public function getPoslovanjeData($rkv)
+    {
+        return $this->provider->getPoslovanjeData($rkv);
+    }
 }

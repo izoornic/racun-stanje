@@ -52,7 +52,7 @@
         @if($aktivna_opomena)
             <!-- Opomena Card -->
            <button wire:click="showOpomena" class="bg-orange-400 dark:bg-orange-800 rounded-2xl mb-4 p-4 text-white flex justify-between w-full">
-                <div class="my-auto"><x-heroicon-o-exclamation-triangle class="w-6 h-6 mt-1 mr-4" /></div>
+                <div class="my-auto"><x-heroicon-o-exclamation-triangle class="w-8 h-8 mt-1 mr-4" /></div>
                 <div>
                     <div class="text-sm opacity-90">Aktivna opomena:</div>
                     <div class="flex">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="my-auto"><x-heroicon-o-arrows-pointing-out class="w-6 h-6 dark:text-white" /></div>
+                <div class="my-auto"><x-heroicon-o-arrows-pointing-out class="w-8 h-8 dark:text-white" /></div>
             </button>
         @endif
 
@@ -70,12 +70,12 @@
             <div class="bg-blue-500 dark:bg-blue-900 rounded-2xl mb-4 p-4 text-white flex justify-between">
                 <div></div>
                 <div>
-                    <div class="text-sm opacity-90">Zgrada: <span class="font-bold">{{ $zgrada['naziv'] }}</span> - Stanje na računu:</div> 
+                    <div class="text-sm opacity-90"><span class="font-bold">SZ {{ $zgrada['naziv'] }}</span> - Stanje na računu:</div> 
                     <div class="flex">
                         <div class="mr-4 my-auto"><x-heroicon-o-building-office class="w-8 h-8 mt-1 mr-2" /></div>
                         <div class="text-3xl font-bold mb-1">{{ $stanje_zgrada['stanja_formated'] }}</div>
                     </div>
-                    <div class="text-sm opacity-90">Datum poslednjeg obrađenog izvoda: <span class="font-bold">{{$stanje_zgrada['datum_display'] }}</span></div>
+                    <div class="text-sm opacity-90">Datum poslednjeg preuzetog izvoda: <span class="font-bold">{{$stanje_zgrada['datum_display'] }}</span></div>
                 </div>
                 <div></div>
             </div>
@@ -93,7 +93,9 @@
         </div> -->
 
         <!-- Uplate -->
-        <button wire:click="showUplate" style="cursor: pointer;" class="mx-auto bg-gray-200 dark:bg-gray-600 rounded-xl p-4 shadow-sm mb-3 flex justify-between">
+        <button wire:click="showUplate" style="cursor: pointer;" class="mx-auto bg-gray-200 dark:bg-gray-600 rounded-xl p-4 shadow-sm mb-3 w-full">
+            <div class="text-sm dark:text-white">Pregled uplata za protekle dve godine</div>
+            <div class="flex justify-between">
             <div></div>
             <div>
                 <div class="flex">
@@ -288,5 +290,5 @@
         @endif
     </main>
     <!-- Footer -->
-    <livewire:footer page="stanje" />
+    <livewire:footer page="stanje" :prikaz="$zgrada['stanje']" />
 </div>

@@ -13,6 +13,20 @@
                 </button>
             @endif
 
+            @if($prikaz == 'poslovanje')
+                @if($page == 'poslovanje')
+                    <div class="flex flex-col items-center py-2 text-blue-500">
+                        <x-heroicon-o-building-office class="w-6 h-6 mb-1"/>
+                        <span class="text-xs">Poslovanje</span>
+                    </div>
+                @else
+                    <button wire:click="showPoslovanje" class="flex flex-col items-center py-2 text-gray-600 dark:text-gray-300">
+                        <x-heroicon-o-building-office class="w-6 h-6 mb-1"/>
+                        <span class="text-xs">Poslovanje</span>
+                    </button>
+                @endif
+            @endif
+
             @if($page == 'profil')
                 <div class="flex flex-col items-center py-2 text-blue-500">
                     <x-heroicon-o-user class="w-6 h-6 mb-1"/>

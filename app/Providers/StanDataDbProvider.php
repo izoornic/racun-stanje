@@ -15,4 +15,9 @@ class StanDataDbProvider implements StanDataProviderInterface
     {
         return [];
     }
+
+    public function getPoslovanjeData($rkv):array
+    {
+        return [];
+    }
 }

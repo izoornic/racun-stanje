@@ -31,8 +31,7 @@ class Profil extends Component
        if(\count($this->stanData['garaze']) > 0){
             $this->garaze = $this->stanData['garaze'];
        }
-       //TODO Garaze
-       //dd($this->stanData);
+       
     }
     public function render()
     {

@@ -8,6 +8,8 @@ class Footer extends Component
 {
     public $rkv;
     public $page;
+    public $prikaz;
+
     public function mount()
     {
         $this->rkv = request()->query('rkv');
@@ -21,6 +23,11 @@ class Footer extends Component
     public function showProfil()
     {
         return redirect()->route('profil', ['rkv' => $this->rkv]);
+    }
+
+    public function showPoslovanje()
+    {
+        return redirect()->route('poslovanje', ['rkv' => $this->rkv]);
     }
     public function render()
     {

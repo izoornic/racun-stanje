@@ -14,14 +14,12 @@ class StanDataApiProvider implements StanDataProviderInterface
             if ($response && $response->successful()) {
                 return $response->json() ?? [];
             } else {
-                // Handle the error
+                $this->logToDatabase('Unable to connect to the API or receive invalid response.');
                 return [];
             }
         }catch(ConnectionException $e) {
             // Handle the connection exception
-            //TODO log to database
-           
-            //dd( $e, response());
+            $this->logToDatabase($e->getMessage());
             return ['error' => 'Unable to connect to the API. Please try again later.'];
         }
     }
@@ -29,20 +27,39 @@ class StanDataApiProvider implements StanDataProviderInterface
     public function getProfileData($rkv):array
     {
         try {
-            $response = Http::post(config( 'services.stan_api.url').'profile/', ['stan_key' => $rkv]);
+            $response = Http::post(config( 'services.stan_api.url').'profile.php', ['stan_key' => $rkv]);
             if ($response && $response->successful()) {
                 return $response->json() ?? [];
             } else {
-                // Handle the error
+                $this->logToDatabase('Unable to connect to the API or receive invalid response.');
                 return [];
             }
         }catch(ConnectionException $e) {
             // Handle the connection exception
-            //TODO log to database
-           
-            //dd( $e, response());
+            $this->logToDatabase($e->getMessage());
             return ['error' => 'Unable to connect to the API. Please try again later.'];
         }
+    }
+
+    public function getPoslovanjeData($rkv):array
+    {
+        try {
+            $response = Http::post(config( 'services.stan_api.url').'poslovanje.php', ['stan_key' => $rkv]);
+            if ($response && $response->successful()) {
+                return $response->json() ?? [];
+            } else {
+                $this->logToDatabase('Unable to connect to the API or receive invalid response.');
+                return [];
+            }
+        }catch(ConnectionException $e) {
+            // Handle the connection exception
+            $this->logToDatabase($e->getMessage());
+            return ['error' => 'Unable to connect to the API. Please try again later.'];
+        }
+    }
+
+    private function logToDatabase($message) {
+        //TODO
     }
 }   
 

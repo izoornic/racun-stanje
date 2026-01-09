@@ -100,5 +100,5 @@
         @endif
     </main>
     <!-- Footer -->
-    <livewire:footer page="profil"/>
+    <livewire:footer page="profil" :prikaz="$zgrada['stanje']"/>
 </div>
